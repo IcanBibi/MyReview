@@ -1,0 +1,24 @@
+ext{
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion: 21
+    ]
+
+    version = [
+            okhttp      : "3.10.0",
+            retrofit2   : "2.0.2",
+            converter   : "2.0.2",
+            gson        :  "2.8.5",
+            adapter     :  "2.0.2"
+    ]
+
+    dependencies =  [
+            //网络
+           "okhttp3"    : "com.squareup.okhttp3:okhttp:$version.okhttp",
+           "retrofit2"    : "com.squareup.retrofit2:retrofit:$version.retrofit2",
+           "converter"    : "com.squareup.retrofit2:converter-gson:$version.converter",
+           "gson"    : "com.google.code.gson:gson:$version.gson",
+           "adapter"    : "com.squareup.retrofit2:adapter-rxjava:$version.adapter"
+    ]
+
+}
