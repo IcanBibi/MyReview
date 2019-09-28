@@ -23,11 +23,16 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
 
     implementation cf.dependencies.okhttp3
     implementation cf.dependencies.retrofit2
     implementation cf.dependencies.converter
     implementation cf.dependencies.gson
     implementation cf.dependencies.adapter
-    implementation 'com.android.support:design:28.0.0'
+
+    implementation cf.dependencies.rxjava
+    implementation cf.dependencies.rxandroid
+
+
 }
