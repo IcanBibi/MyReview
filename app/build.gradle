@@ -34,5 +34,5 @@ dependencies {
     implementation cf.dependencies.rxjava
     implementation cf.dependencies.rxandroid
 
-
+    implementation cf.dependencies.glide
 }

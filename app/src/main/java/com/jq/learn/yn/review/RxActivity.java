@@ -3,6 +3,11 @@ package com.jq.learn.yn.review;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,10 +25,33 @@ import io.reactivex.schedulers.Schedulers;
 
 public class RxActivity extends AppCompatActivity {
 
+    private ImageView viewById;
+    private final String imageURL = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569752414999&di=d3aa78aa6c222572b86f0f2fd9be3874&imgtype=0&src=http%3A%2F%2Fimages.ali213.net%2Fpicfile%2Fpic%2F2012-11-27%2F927_one_piece18.jpg";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx);
+
+        viewById = (ImageView) findViewById(R.id.iv_iv);
+        findViewById(R.id.btn_get).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Glide.with(RxActivity.this)
+//                        .load(imageURL)
+//                        .crossFade(5000) //改变的时长.
+//                        .into(viewById);
+
+
+                MyBitmapTransformation myBitmapTransformation = new MyBitmapTransformation(RxActivity.this);
+                Glide.with(RxActivity.this)
+                        .load(imageURL)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .transform(myBitmapTransformation)
+                        .into(viewById);
+            }
+        });
+
 
 
         Observable<Integer> sourceObservable = Observable.create(new ObservableOnSubscribe<Integer>() {

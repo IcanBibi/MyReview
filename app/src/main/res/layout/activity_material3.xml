@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Material3Activity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/al_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="@color/colorPrimaryDark"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/iv_title"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="1"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:title="@string/app_name"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@android:drawable/ic_media_play"
+                app:title="Collapse"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <!--<TextView-->
+        <!--android:gravity="center"-->
+        <!--android:text="layout_scrollFlags=scroll"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:background="@android:color/holo_green_dark"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:minHeight="50dp"-->
+        <!--app:layout_scrollFlags="scroll|snap"/>-->
+
+        <!--<TextView-->
+        <!--android:gravity="center"-->
+
+        <!--android:text="没有设置layout_scrollFlags"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:background="@android:color/holo_orange_dark"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"/>-->
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_btn_speak_now"
+        android:layout_margin="10dp"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_anchor="@id/al_title"
+        app:layout_anchorGravity="bottom|end"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
