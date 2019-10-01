@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".rxdemo.RxDemo1">
+
+    <Button
+        android:id="@+id/tv_download"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="开始下载"/>
+
+
+    <TextView
+        android:id="@+id/tv_down_result"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="下载进度"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <EditText
+        android:layout_marginTop="50dp"
+        android:id="@+id/et_search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/tv_search_result"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="搜索结果"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+</LinearLayout>

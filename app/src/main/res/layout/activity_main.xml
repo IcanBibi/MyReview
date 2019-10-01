@@ -24,4 +24,15 @@
         android:textColor="#000000"
         android:textSize="20sp"/>
 
+    <Button
+        android:id="@+id/btn_demo1"
+        android:text="rxdemo1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <Button
+        android:id="@+id/btn_demo4"
+        android:text="rxdemo4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
 </LinearLayout>

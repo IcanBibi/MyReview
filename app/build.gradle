@@ -35,4 +35,10 @@ dependencies {
     implementation cf.dependencies.rxandroid
 
     implementation cf.dependencies.glide
-}
+
+    implementation cf.dependencies.navigationbar
+
+
+    implementation'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+    }

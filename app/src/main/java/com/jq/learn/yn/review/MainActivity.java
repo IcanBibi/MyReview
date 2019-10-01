@@ -1,11 +1,15 @@
 package com.jq.learn.yn.review;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.jq.learn.yn.review.rxdemo.RxDemo1;
+import com.jq.learn.yn.review.rxdemo.RxDemo4;
 
 import java.io.IOException;
 
@@ -18,10 +22,11 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String URL = "http://www.weather.com.cn/adat/sk/101220201.html";
     private Button btn;
+    private Button demo1,demo4;
     private TextView text;
     private OkHttpClient client;
     private Request build;
@@ -34,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btn = (Button) findViewById(R.id.btn_get);
         text = (TextView) findViewById(R.id.tv_text);
+        demo1 = (Button) findViewById(R.id.btn_demo1);
+        demo4 = (Button) findViewById(R.id.btn_demo4);
         initOkhttp();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +48,26 @@ public class MainActivity extends AppCompatActivity {
                 initData();
             }
         });
+        demo1.setOnClickListener(this);
+        demo4.setOnClickListener(this);
+
     }
+
+    private Intent intent;
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_demo1:
+                intent = new Intent(MainActivity.this,RxDemo1.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_demo4:
+                intent = new Intent(MainActivity.this,RxDemo4.class);
+                startActivity(intent);
+                break;
+        }
+    }
+
 
     private void initOkhttp() {
         client = new OkHttpClient().newBuilder().addInterceptor(new LoggingInterceptor()).build();
