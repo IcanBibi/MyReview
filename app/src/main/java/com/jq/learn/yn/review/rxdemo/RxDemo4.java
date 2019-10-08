@@ -64,9 +64,10 @@ public class RxDemo4 extends AppCompatActivity {
         Observable<List<NewsEntity.ResultsBean>> observable = Observable.just(page).subscribeOn(Schedulers.io()).flatMap(new Function<Integer, Observable<List<NewsEntity.ResultsBean>>>() {
             @Override
             public Observable<List<NewsEntity.ResultsBean>> apply(Integer integer) throws Exception {
-                Observable<NewsEntity> androidObservable = api.getNews("Android", 10, 1);
-                Observable<NewsEntity> iosObservable = api.getNews("ios", 10, 1);
-
+                Observable<NewsEntity> androidObservable = api.getNews("Android", 10, page);
+                Observable<NewsEntity> iosObservable = api.getNews("iOS", 10, page);
+//                Observable<NewsEntity> androidObservable = getObservable("Android", page);
+//                Observable<NewsEntity> iosObservable = getObservable("iOS", page);
                 return Observable.zip(androidObservable, iosObservable, new BiFunction<NewsEntity, NewsEntity, List<NewsEntity.ResultsBean>>() {
                     @Override
                     public List<NewsEntity.ResultsBean> apply(NewsEntity androidEntity, NewsEntity iosEntity) throws Exception {
@@ -102,7 +103,21 @@ public class RxDemo4 extends AppCompatActivity {
 
     }
 
+
+//    private Observable<NewsEntity> getObservable(String category, int page) {
+//        initApi();
+//        NewsApi api = new Retrofit.Builder()
+//                .baseUrl("http://gank.io")
+//                .client(client)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .build().create(NewsApi.class);
+//        return api.getNews(category, 10, page);
+//    }
+
+
     private NewsApi api;
+    private OkHttpClient client;
 
     private void initApi() {
         /*
@@ -112,11 +127,11 @@ public class RxDemo4 extends AppCompatActivity {
             @Override
             public void log(String message) {
                 //打印retrofit日志
-                Log.e("RetrofitLog","retrofitBack = "+message);
+                Log.e("RetrofitLog", "retrofitBack = " + message);
             }
         });
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder()//okhttp设置部分，此处还可再设置网络参数
+        client = new OkHttpClient.Builder()//okhttp设置部分，此处还可再设置网络参数
                 .addInterceptor(loggingInterceptor)
                 .build();
 
@@ -160,8 +175,8 @@ public class RxDemo4 extends AppCompatActivity {
 
             public NewsViewHolder(@NonNull View itemView) {
                 super(itemView);
-                mTvDest = (TextView) findViewById(R.id.tv_item_dest);
-                mTvType = (TextView) findViewById(R.id.tv_item_type);
+                mTvDest = (TextView) itemView.findViewById(R.id.tv_item_dest);
+                mTvType = (TextView) itemView.findViewById(R.id.tv_item_type);
             }
 
             public void setTitle(NewsEntity.ResultsBean item) {

@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 def cf = rootProject.ext
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -39,6 +41,7 @@ dependencies {
     implementation cf.dependencies.navigationbar
 
 
-    implementation'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
-    }
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
