@@ -79,8 +79,8 @@ fun demoList() {
 
     //链式操作，找出比1大的元素，取部分，double，做和操作
     val result = list.filter { it > 1 }
-                .slice(1..2)
-                 .map { it * 2 }
+            .slice(1..2)
+            .map { it * 2 }
 //                .reduce(sum)
 
 }
@@ -89,7 +89,7 @@ fun demoList() {
 //set 元素唯一，不重复
 //一般用来放东西，所有一般用mutableSet
 
-fun demoSet(){
+fun demoSet() {
     val set = mutableSetOf<Int>()
 
     set.add(1)
@@ -106,9 +106,9 @@ fun demoSet(){
 //Map
 //HashMap 键值对
 
-fun  demoMap(){
+fun demoMap() {
 
-    val map: HashMap<Int,String> = hashMapOf(
+    val map: HashMap<Int, String> = hashMapOf(
             1 to "Hello",
             2 to "Kotlin"
     )
@@ -119,8 +119,6 @@ fun  demoMap(){
     map.keys //{1, 2}
     map.values//{"Hello","Kotlin"}
 }
-
-
 
 
 

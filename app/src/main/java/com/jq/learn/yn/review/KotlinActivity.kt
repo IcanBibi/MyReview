@@ -128,5 +128,4 @@ class KotlinActivity : AppCompatActivity() {
     }
 
 
-
 }
